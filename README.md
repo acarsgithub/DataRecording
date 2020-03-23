@@ -23,7 +23,7 @@ Within the librealsense library, the two most important functionalities for the 
  
 #### Beware: You are highly advised to use Visual Studio 2019 as the IDE to run the rs-record-playback example below, as many other IDE's caused unexpected issues and errors. Make sure that the camera is plugged in before you begin running the application. Here is the link for VS 2019: https://visualstudio.microsoft.com/vs/
  
-When the camera is plugged in to your laptop (USB connection), execute the rs-record-playback sample code. You will see that it provides the optionalities to begin recording, pause recordings, resume recordings, to stop reocrdings, and to playback the previous recording you made.
+When the camera is plugged in to your laptop (USB connection), execute the rs-record-playback sample code. You will see that it provides the optionalities to begin recording, pause recordings, resume recordings, to stop reocrdings, and to playback the previous recording you made. Once the recoridng is finished, it will be saved within the **Debug** folder of rs-record playback. This will be created for you automatically once you have completed the first recording.
 
 rs-convert allows you take the bag file from the recording that you made, and convert it to one of many formats:
 * PNG (for depth mapping and RGB)
@@ -36,9 +36,5 @@ Up to now, PNG is the most useful format for us. However, we are planning on loo
  - *rs-convert.exe -v test -i 1.bag*. 
  
 We found that it is helpful to replace *test* with the folder destination that you want to save the PNG files to. This is something we had to discover on our own, but a useful tool.
-
-
-
-
 
 
