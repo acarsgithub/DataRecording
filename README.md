@@ -32,7 +32,7 @@ rs-convert allows you take the bag file from the recording that you made, and co
 * PLY output
 * BIN output
 
-Up to now, PNG is the most useful format for us. However, we are planning on looking into the other formats and seeing how useful that they might be for obtaining useful information to help create the visualization system.
+Up to now, PNG is the most useful format for us. However, we are planning on looking into the other formats and seeing how useful that they might be for obtaining useful information to help create the visualization system. In the usage example on the link to rs-convert placed above, you will see that to properly convert, the terminal prompt must be in the format * rs-convert.exe -v test -i 1.bag *
 
 
 
