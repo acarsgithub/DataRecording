@@ -15,11 +15,15 @@ From here, we discovered that the librealsense library will provide the most use
 
 * https://github.com/IntelRealSense/librealsense
 
-#### Beware: You are highly advised to use Visual Studio 2019 as the IDE to run the rs-record-playback example below, as many other IDE's caused issues
 
 Within the librealsense library, the two most important functionalities for the purposes of our team were: 
+
  * rs-convert https://github.com/IntelRealSense/librealsense/tree/master/tools/convert
  * rs-record-playback https://github.com/IntelRealSense/librealsense/tree/master/examples/record-playback
+ 
+#### Beware: You are highly advised to use Visual Studio 2019 as the IDE to run the rs-record-playback example below, as many other IDE's caused unexpected issues and errors. Make sure that the camera is plugged in before you begin running the application.
+ 
+When the camera is plugged in to your laptop (USB connection), execute the rs-record-playback sample code. You will see that it provides the optionalities to begin recording, pause recordings, resume recordings, to stop reocrdings, and to playback the previous recording you made.
  
 
 
