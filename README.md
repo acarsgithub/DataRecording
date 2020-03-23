@@ -11,9 +11,10 @@ The following link is useful to obtain the IntelRealSense SDK 2.0
 * https://www.intelrealsense.com/sdk-2/
 
 
-From here, we discovered that the librealsense library will provide the most useful functionalities and tools needed for our progress. Intel provided this library to all programmers through their github repository - the link is below...
+From here, we discovered that the librealsense library will provide the most useful functionalities and tools needed for our progress. Intel provided this library to all programmers through their github repository - the following is the github link to the repository
 
 * https://github.com/IntelRealSense/librealsense
+
 
 
 
