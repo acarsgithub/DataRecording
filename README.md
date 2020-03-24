@@ -67,7 +67,11 @@ Here is a quick breakdown of how beacon signals and Bluetooth Low Energy technol
 * The minor integer value is a representation of each individual beacon
 * Here is a good link that explaisn beacon technology in more detail: https://kontakt.io/blog/beacon-id-strategy-guide-quick-deployment/
 
-Once all of the above has been successfully installed, go ahead and open up the **node_modules** folder (this folder contains the libraries for bleacon, bleno, noble, and probably many others that were automatically downloaded throughout the above installation process. Within the bleacon folder, go to the *test.js* file and run the file. Here is where the file is located and what it looks like: https://github.com/sandeepmistry/node-bleacon/blob/master/test.js
+Once all of the above has been successfully installed, go ahead and open up the **node_modules** folder (this folder contains the libraries for bleacon, bleno, noble, and probably many others that were automatically downloaded throughout the above installation process). Within the nodule_modules folder, enter the bleacon folder and go to the *test.js* file and run the file. Here is where the file is located and what it looks like: https://github.com/sandeepmistry/node-bleacon/blob/master/test.js.
+
+If everything was installed properly, then running test.js should display (to console) the beacon with the specific UUID, major, and minor that was advertised. We managed to get to this point after a lot of struggle, but it eventually worked out! The console logging is laggy and glitchy sometimes, so it may not display properly or at all, but keep attempting to run the code and make sure everything was installed properly beforehand.
+
+
 
 
 
