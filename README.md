@@ -69,8 +69,13 @@ Here is a quick breakdown of how beacon signals and Bluetooth Low Energy technol
 
 Once all of the above has been successfully installed, go ahead and open up the **node_modules** folder (this folder contains the libraries for bleacon, bleno, noble, and probably many others that were automatically downloaded throughout the above installation process). Within the nodule_modules folder, enter the bleacon folder and go to the *test.js* file and run the file. Here is where the file is located and what it looks like: https://github.com/sandeepmistry/node-bleacon/blob/master/test.js.
 
-If everything was installed properly, then running test.js should display (to console) the beacon with the specific UUID, major, and minor that was advertised. We managed to get to this point after a lot of struggle, but it eventually worked out! The console logging is laggy and glitchy sometimes, so it may not display properly or at all, but keep attempting to run the code and make sure everything was installed properly beforehand.
+If everything was installed properly, then running test.js should display (to console) the beacon with the specific UUID, major, and minor that was advertised. We managed to get to this point after a lot of struggle, but it eventually worked out! The console logging is laggy and glitchy sometimes, so it may not display properly or at all, but keep attempting to run the code and make sure everything was installed properly beforehand. Also, make sure that you can pick the signal up in the 'Locate' application, and that you cna also advertise your own signal from the 'Locate' application and scan it properly from the test.js file to log the beacon to console.
 
+At this point, after the beacon properly advertises and gets scanned, we can set up our own transmitters/beacon signals for the purposes of the overall application. The following is also displayed in the PNG file mentioned earlier. There are four signals we need to create. For all of these signals, the only thing that we need to differentiate between the signals is the minor value. The UUID and major will stay consistent. The following signals were created within the 'Locate' application:
+* A *Start Recording* signal with minor value 1
+* A *Stop Recording* signal with minor value 0
+* A *Currently Recording State* signal with minor value 3
+* A *Not Recording State* signal with minor value 2
 
 
 
