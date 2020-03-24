@@ -37,6 +37,6 @@ Up to now, PNG is the most useful format for us. However, we are planning on loo
  
 We found that it is helpful to replace *test* with the folder destination that you want to save the PNG files to. This is something we had to discover on our own, but a useful tool.
 
-## Following this, we managed to reach the first big stage throughout the project: we fully set up the SDK realsense viewer, recorded with the depth mapping Intel 435i, stored the recording into bag files, and converted the bag files to a suitable format for our visualization purposes.
+#### Following this, we managed to reach the first big stage throughout the project: we fully set up the SDK realsense viewer, recorded with the depth mapping Intel 435i, stored the recording into bag files, and converted the bag files to a suitable format for our visualization purposes.
 
 
