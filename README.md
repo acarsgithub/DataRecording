@@ -77,7 +77,9 @@ At this point, after the beacon properly advertises and gets scanned, we can set
 * A *Currently Recording State* signal with minor value 3
 * A *Not Recording State* signal with minor value 2
 
+Once I made sure I could recieve and send signals for state and recording control, I began modifying the test.js file for the overall application. That code is available above. Just use the *test.js* file within the repository and replace the original code with this one. 
 
+*** The current issue with the file is that I can send a signal and recieve state back properly, but I cannot change states or signals yet. This is still an ongoing process we have yet to complete.
 
 
 
