@@ -54,5 +54,22 @@ The following is needed:
 
 #### I can't stress this enough: follow all README directions for properly installing the libraries above, it is critical.
 
+After the libraries have installed properly, go ahead and download the 'Locate' smartphone application in the application store:
+* https://apps.apple.com/in/app/locate-beacon/id738709014 
+
+Also, if you don't already have it, go ahead and download the Visual Studio Code IDE, as we have found that it works the best for the bleacon library:
+* https://code.visualstudio.com/
+
+Here is a quick breakdown of how beacon signals and Bluetooth Low Energy technology works:
+* Each beacon signal consists of a UUID, major, and minor combination
+* The UUID is a string encoding meant to represent one large clustered group of beacons
+* The major integer value is a representation of a subgroup within the large group of beacons
+* The minor integer value is a representation of each individual beacon
+* Here is a good link that explaisn beacon technology in more detail: https://kontakt.io/blog/beacon-id-strategy-guide-quick-deployment/
+
+Once all of the above has been successfully installed, go ahead and open up the **node_modules** folder (this folder contains the libraries for bleacon, bleno, noble, and probably many others that were automatically downloaded throughout the above installation process. Within the bleacon folder, go to the *test.js* file and run the file. Here is where the file is located and what it looks like: https://github.com/sandeepmistry/node-bleacon/blob/master/test.js
+
+
+
 
 
