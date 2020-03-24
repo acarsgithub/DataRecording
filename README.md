@@ -41,3 +41,18 @@ We found that it is helpful to replace *test* with the folder destination that y
 #### Following this, we managed to reach the first big stage throughout the project: we fully set up the SDK realsense viewer, recorded with the depth mapping Intel 435i, stored the recording into bag files, and converted the bag files to a suitable format for our visualization purposes.
 
 
+### Part 2
+
+After we managed to successfully complete the first part of the project, our next task was to focus on Bleacon technology as a means of communication between a smartphone and a controller (such as a Raspberry Pi) in order to execute our code for the Intel 435i recording.
+
+Bleacon technology is used in conjunction with the noble and bleno libraries. Together, these things allow for a controller to communicate properly with a smartphone. Please observe the PNG attached to this repository named *EndResult.PNG* to view a conceptual representation/diagram of what the focus of this part of the project is; essentially, it is to create an application that will help us communicate between a controller and a smartphone with bluetooth functionality so that we can record with the 435i at will.
+
+The following is needed:
+* The Bleacon library: https://github.com/sandeepmistry/node-bleacon
+* The noble library (prerquisite for bleacon): https://github.com/noble/noble#prerequisites
+* The bleno library (prerequisite for bleacon): https://github.com/noble/bleno
+
+#### I can't stress this enough: follow all README directions for properly installing the libraries above, it is critical.
+
+
+
