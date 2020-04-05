@@ -93,5 +93,8 @@ In this part, we will speak on the hardware part of the project.
 We originally started working with the Jetson Nvidia Nano, but quickly ran into issues regarding the architecture of the operating system not being x86. We then decided to work with the raspberry pi instead as we thought it would be the best substitute.
 
 
+### Part 4
+
+Here, we will discuss our progress on the Amazon S3 portion of the proejct.
 
 
