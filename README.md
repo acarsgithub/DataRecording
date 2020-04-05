@@ -7,7 +7,7 @@
 
 After realizing that we will be working with the Intel 435i depth-mapping camera to obtain RGB, depth mappings, and other useful functionalities for our Autonomous Visualization Research, we went ahead and downloaded the IntelRealSense SDK 2.0 application to have a user friendly interface of the recordings while gaining familiarity with how the camera worked and how the files were saved ('.bag' extensions)
 
-The following link is useful to obtain the IntelRealSense SDK 2.0 
+The following link is useful to obtain the IntelRealSense SDK 2.0 application
 
 * https://www.intelrealsense.com/sdk-2/
 
@@ -24,9 +24,9 @@ Within the librealsense library, the two most important functionalities for the 
  
 #### Beware: You are highly advised to use Visual Studio 2019 as the IDE to run the rs-record-playback example below, as many other IDE's caused unexpected issues and errors. Make sure that the camera is plugged in before you begin running the application. Here is the link for VS 2019: https://visualstudio.microsoft.com/vs/
  
-When the camera is plugged in to your laptop (USB connection), execute the rs-record-playback sample code. You will see that it provides the optionalities to begin recording, pause recordings, resume recordings, to stop reocrdings, and to playback the previous recording you made. Once the recoridng is finished, it will be saved within the **Debug** folder within the samples and/or rs-record playback directory. This will be created for you automatically once you have completed the first recording.
+When the camera is plugged in to your laptop (USB connection), execute the rs-record-playback sample code. You will see that it provides the optionalities to begin recording, pause recordings, resume recordings, to stop reocrdings, and to playback the previous recording you made. Once the recording is finished, it will be saved within the **Debug** folder within the samples and/or rs-record playback directory. This will be created for you automatically once you have completed the first recording.
 
-rs-convert allows you take the bag file from the recording that you made, and convert it to one of many formats:
+rs-convert allows you take the bag file from the recording that you made, and converts it to one of many formats:
 * PNG (for depth mapping and RGB)
 * CSV depth matrix
 * RAW output
@@ -37,6 +37,8 @@ Up to now, PNG is the most useful format for us. However, we are planning on loo
  - *rs-convert.exe -v test -i 1.bag*. 
  
 We found that it is helpful to replace *test* with the folder destination that you want to save the PNG files to. This is something we had to discover on our own, but a useful tool.
+
+We also modified the rs-record-playback file to start recording with the Intel435i as soon as the program starts running and to continuously record while it is running, until the program is killed. We believed that this was going to be very useful for the overall application, making it quicker to start recording and helping us revolve around the issue of needing to press buttons on the rs-record-playback user interface to start recording. Our plan was to control the recording through beacon signals (explained in the next section). Having this setup makes it a lot easier. We did manage to modify the code and get the result that we needed, but we ran into an issue converting the bag file that we obtained with rs-convert. Since our plan was to abruptly kill the program, it turns out that we cause a "bag unindexed" error that comes about from the unexpected interruption of the recording process. The modified code that we made is included in the repositiory named rs-record-playback-modified. As of now, because of the interruption issue, this is still an ongoing process. We also created an executable of the program, which is also included in this repository. 
 
 #### Following this, we managed to reach the first big stage throughout the project: we fully set up the SDK realsense viewer, recorded with the depth mapping Intel 435i, stored the recording into bag files, and converted the bag files to a suitable format for our visualization purposes.
 
@@ -67,9 +69,9 @@ Here is a quick breakdown of how beacon signals and Bluetooth Low Energy technol
 * The minor integer value is a representation of each individual beacon
 * Here is a good link that explaisn beacon technology in more detail: https://kontakt.io/blog/beacon-id-strategy-guide-quick-deployment/
 
-Once all of the above has been successfully installed, go ahead and open up the **node_modules** folder (this folder contains the libraries for bleacon, bleno, noble, and probably many others that were automatically downloaded throughout the above installation process). Within the nodule_modules folder, enter the bleacon folder and go to the *test.js* file and run the file. Here is where the file is located and what it looks like: https://github.com/sandeepmistry/node-bleacon/blob/master/test.js.
+Once all of the above has been successfully installed, go ahead and open up the **node_modules** folder (this folder contains the libraries for bleacon, bleno, noble, and probably many others that were automatically downloaded throughout the above installation process). Within the node_modules folder, enter the bleacon folder and go to the *test.js* file and run the file. Here is where the file is located and what it looks like: https://github.com/sandeepmistry/node-bleacon/blob/master/test.js.
 
-If everything was installed properly, then running test.js should display (to console) the beacon with the specific UUID, major, and minor that was advertised. We managed to get to this point after a lot of struggle, but it eventually worked out! The console logging is laggy and glitchy sometimes, so it may not display properly or at all, but keep attempting to run the code and make sure everything was installed properly beforehand. Also, make sure that you can pick the signal up in the 'Locate' application, and that you cna also advertise your own signal from the 'Locate' application and scan it properly from the test.js file to log the beacon to console.
+If everything was installed properly, then running test.js should display (to console) the beacon with the specific UUID, major, and minor that was advertised. We managed to get to this point after a lot of struggle, but it eventually worked out! The console logging is laggy and glitchy sometimes, so it may not display properly or at all, but keep attempting to run the code and make sure everything was installed properly beforehand. Essentially, make sure that you can pick the signal up in the 'Locate' application, and that you can also advertise your own signal from the 'Locate' application and scan it properly from the test.js file to log the beacon to console.
 
 At this point, after the beacon properly advertises and gets scanned, we can set up our own transmitters/beacon signals for the purposes of the overall application. The following is also displayed in the PNG file mentioned earlier. There are four signals we need to create. For all of these signals, the only thing that we need to differentiate between the signals is the minor value. The UUID and major will stay consistent. The following signals were created within the 'Locate' application:
 * A *Start Recording* signal with minor value 1
@@ -77,9 +79,16 @@ At this point, after the beacon properly advertises and gets scanned, we can set
 * A *Currently Recording State* signal with minor value 3
 * A *Not Recording State* signal with minor value 2
 
-Once I made sure I could recieve and send signals for state and recording control, I began modifying the test.js file for the overall application. That code is available above. Just use the *test.js* file within the repository and replace the original code with this one. 
+Once we made sure we could recieve and send signals for state and recording control, we began modifying the test.js file for the overall application. That code is available above. Just use the *test.js* file within the repository and replace the original code with this one. 
 
-#### Current Issue: I can send a signal and recieve state back properly, but I cannot swap between states or signals yet. This is still an ongoing process.
+#### Current Issue: We can send a signal and recieve state back properly, but we cannot swap between states or signals yet. This is still an ongoing process.
+
+
+### Part 3
+
+In this part, we will speak on the hardware part of the project. 
+
+We originally started working with the Jetson Nvidia Nano, but quickly ran into issues regarding the architecture of the operating system not being x86. We then decided to work with the raspberry pi. 
 
 
 
