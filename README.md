@@ -22,7 +22,7 @@ Within the librealsense library, the two most important functionalities for the 
  * rs-convert https://github.com/IntelRealSense/librealsense/tree/master/tools/convert
  * rs-record-playback https://github.com/IntelRealSense/librealsense/tree/master/examples/record-playback
  
-#### Beware: You are highly advised to use Visual Studio 2019 as the IDE to run the rs-record-playback example below, as many other IDE's caused unexpected issues and errors. Make sure that the camera is plugged in before you begin running the application. Here is the link for VS 2019: https://visualstudio.microsoft.com/vs/
+#### Beware: You are highly advised to use Visual Studio 2019 as the IDE to run the rs-record-playback example, as many other IDE's caused unexpected issues and errors. Make sure that the camera is plugged in before you begin running the application. Here is the link for VS 2019: https://visualstudio.microsoft.com/vs/
  
 When the camera is plugged in to your laptop (USB connection), execute the rs-record-playback sample code. You will see that it provides the optionalities to begin recording, pause recordings, resume recordings, to stop reocrdings, and to playback the previous recording you made. Once the recording is finished, it will be saved within the **Debug** folder within the samples and/or rs-record playback directory. This will be created for you automatically once you have completed the first recording.
 
@@ -33,12 +33,14 @@ rs-convert allows you take the bag file from the recording that you made, and co
 * PLY output
 * BIN output
 
-Up to now, PNG is the most useful format for us. However, we are planning on looking into the other formats and seeing how useful that they might be for obtaining useful information to help create the visualization system. In the usage example on the link to rs-convert placed above, you will see that to properly convert, the terminal prompt must be in the format:
+Up to now, PNG is the most useful format for us. However, we are planning on looking into the other formats and seeing how useful that they might be for obtaining useful information to help create the visualization system. In the usage example on the link to rs-convert, you will see that to properly convert from bag files that the terminal prompt must be in the following format:
  - *rs-convert.exe -v test -i 1.bag*. 
  
 We found that it is helpful to replace *test* with the folder destination that you want to save the PNG files to. This is something we had to discover on our own, but a useful tool.
 
-We also modified the rs-record-playback file to start recording with the Intel435i as soon as the program starts running and to continuously record while it is running, until the program is killed. We believed that this was going to be very useful for the overall application, making it quicker to start recording and helping us revolve around the issue of needing to press buttons on the rs-record-playback user interface to start recording. Our plan was to control the recording through beacon signals (explained in the next section). Having this setup makes it a lot easier. We did manage to modify the code and get the result that we needed, but we ran into an issue converting the bag file that we obtained with rs-convert. Since our plan was to abruptly kill the program, it turns out that we cause a "bag unindexed" error that comes about from the unexpected interruption of the recording process. The modified code that we made is included in the repositiory named rs-record-playback-modified. As of now, because of the interruption issue, this is still an ongoing process. We also created an executable of the program, which is also included in this repository. 
+We also modified the rs-record-playback file to start recording with the Intel435i as soon as the program starts running and to continuously record while it is running, until the program is killed. We believed that this was going to be very useful for the overall application we needed to create, making it quicker to start recording and helping us revolve around the issue of needing to press buttons on the rs-record-playback user interface to start recording. Our plan was to control the recording through beacon signals (explained in the next section). We did manage to modify the code and get the result that we needed, but we ran into an issue converting the bag file that we obtained. Since our plan was to abruptly kill the program, it turns out that we cause a "bag unindexed" error that comes about from the unexpected interruption of the recording process. The modified code that we made is included in the repositiory named rs-record-playback-modified. As of now, because of the interruption issue, this is still an ongoing process. We also created an executable of the program, which is also included in this repository. 
+
+#### Current issue: We cannot just unexpectedly kill the program, so we must work aorund this issue.
 
 #### Following this, we managed to reach the first big stage throughout the project: we fully set up the SDK realsense viewer, recorded with the depth mapping Intel 435i, stored the recording into bag files, and converted the bag files to a suitable format for our visualization purposes.
 
@@ -73,7 +75,7 @@ Once all of the above has been successfully installed, go ahead and open up the 
 
 If everything was installed properly, then running test.js should display (to console) the beacon with the specific UUID, major, and minor that was advertised. We managed to get to this point after a lot of struggle, but it eventually worked out! The console logging is laggy and glitchy sometimes, so it may not display properly or at all, but keep attempting to run the code and make sure everything was installed properly beforehand. Essentially, make sure that you can pick the signal up in the 'Locate' application, and that you can also advertise your own signal from the 'Locate' application and scan it properly from the test.js file to log the beacon to console.
 
-At this point, after the beacon properly advertises and gets scanned, we can set up our own transmitters/beacon signals for the purposes of the overall application. The following is also displayed in the PNG file mentioned earlier. There are four signals we need to create. For all of these signals, the only thing that we need to differentiate between the signals is the minor value. The UUID and major will stay consistent. The following signals were created within the 'Locate' application:
+At this point, after the beacon properly advertises and gets scanned, we can set up our own transmitters/beacon signals for the purposes of the overall application. There are four signals we need to create. For all of these signals, the only thing that we need to differentiate between the signals is the minor value. The UUID and major will stay consistent. The following signals were created within the 'Locate' application:
 * A *Start Recording* signal with minor value 1
 * A *Stop Recording* signal with minor value 0
 * A *Currently Recording State* signal with minor value 3
@@ -88,7 +90,7 @@ Once we made sure we could recieve and send signals for state and recording cont
 
 In this part, we will speak on the hardware part of the project. 
 
-We originally started working with the Jetson Nvidia Nano, but quickly ran into issues regarding the architecture of the operating system not being x86. We then decided to work with the raspberry pi. 
+We originally started working with the Jetson Nvidia Nano, but quickly ran into issues regarding the architecture of the operating system not being x86. We then decided to work with the raspberry pi instead as we thought it would be the best substitute.
 
 
 
