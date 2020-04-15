@@ -97,6 +97,6 @@ Although the process worked successfully in normal Linux machine such as a Dell 
 
 ### Part 4
 
-Here, we will discuss our progress on the Amazon S3 portion of the proejct.
+Here, we will discuss our progress on the Amazon S3 portion of the project.
 
 
