@@ -88,11 +88,9 @@ Once we made sure we could recieve and send signals for state and recording cont
 
 ### Part 3
 
-In this part, we will speak on the hardware part of the project. 
+As for the data collecting device, we used the Intel 435i depth-mapping camera to obtain RGB, depth mappings, and other useful functionalities. The device could be operated on any computer with major operating systems with usb portals. Our original plan was to use the Jetson Nvidia Nano as the machine for processing and storing the data we collected with the Intel 435i, all while using libraries written in C++. 
 
-As for the data collecting device, we used the Intel 435i depth-mapping camera to obtain RGB, depth mappings, and other useful functionalities. The device could be operated on any computer with major operating systems with usb portals. Our original plan is to use Jetson Nvidia Nano as the machine for processing and storing the datas we collect with Intel 435i, using libraries written in C++. 
-
-Although the process worked successfully in normal Linux machine such as a Dell Inspiration laptop with Ubuntu, the librealsense library failed to compile on Jetson Nvidia Nano with Ubuntu. The essence is that some of the external code librealsense library depends on is not supported by the computer architecture of Jetson which is in ARM. We then decided to work with the raspberry pi instead as we thought it would be the best substitute.
+Although the process worked successfully in normal Linux machines, such as the Dell Inspiration laptop with Ubuntu, the librealsense library failed to compile on the Jetson Nvidia Nano with Ubuntu. The essence is that some of the external code that the librealsense library depends on is not supported by the computer architecture of the Jetson Nvidia Nano (which is in ARM). We then decided to work with the raspberry pi instead, as we thought it would be the best substitute for the project.
 
 
 ### Part 4
