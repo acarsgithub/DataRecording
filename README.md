@@ -99,4 +99,19 @@ Then, the microSD card is inserted into the Raspberry Pi, and
 
 Here, we will discuss our progress on the Amazon S3 portion of the project.
 
+As our team did not handle the entirety of the project, but rather just the recording and recording control portion, we wanted to make an easy access point for other teams to access the ‘.bag’ files. The most efficient solution to this was to us Amazon Web Services S3 solutions. We purchased an AWS subscription to use their console and tools. 
 
+Within AWS, there are many approaches to upload data. We downloaded the S3 SDK for C++, and the Git repo for this can be found here: https://github.com/aws/aws-sdk-cpp#aws-sdk-cpp. The developer guide was useful in investigating this option, and can be accessed here: https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/welcome.html. This approach would be sufficient to upload on an OS such as iOS, Windows or Linux and would involve creating “buckets” of data to maintain. According to AWS,“Every object or file in Amazon Simple Storage Service must reside within a bucket which represents a folder of objects. Each bucket is known by a name that must be globally unique within the AWS ecosystem” (AWS). More information on the creation, listing and deletion of buckets, along with sample C++ code can be found here: https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/examples-s3-buckets.html. 
+
+Because the ultimate goal was to upload from the Raspberry Pi or Intel 4351 to the cloud storage, we looked into the other options that AWS provides. The most viable option was AWS’ internet of things --IoT-- approach, as there is sufficient documentation to implement this on a Raspberry Pi. In fact, the AWS IoT page notes, “This enables you to collect telemetry data from multiple devices, and store and analyze the data. You can also create applications that enable your users to control these devices from their phones or tablets”(AWS). The specific implementation guide for using the AWS IoT SDK on the raspberry pi was found here: https://docs.aws.amazon.com/iot/latest/developerguide/sdk-tutorials.html. 
+
+
+Due to the complicated installation process and the brevity of the semester spent on campus, we were unable to fully register the pi as a “thing” with AWS’ IoT and fully implement the cloud storage feature of the data recording. Despite this, the plan included registering the raspberry pi as a “thing” with AWS IoT, and according to Amazon, “A thing represents a device whose state is stored in the AWS Cloud” (AWS). The device’s state is recorded in a JSON document called the “shadow.” The shadow can achieve bi-directional communication that can retrieve and store state information about the device/”thing.” AWS offers a Device Shadow service that, “maintains a shadow for each device that is registered in AWS IoT” (AWS). 
+
+IoT Homepage: https://us-west-2.console.aws.amazon.com/iot/home?region=us-west-2#/home
+
+Finally, AWS IoT Greengrass is a, “software that lets you run local compute, messaging, management, sync, and ML inference capabilities on connected devices in a secure way,” and, “can be programmed to filter device data and only transmit necessary information back to the cloud” (AWS). Our ultimate goal would be to register all recording units (camera, pi) with IoT Greengrass to filter back the important data and to have communication sans internet connection. 
+
+The IoT Greengrass homepage can be found here: https://us-west-2.console.aws.amazon.com/iot/home?region=us-west-2#/greengrassIntro
+
+The IoT Greengrass SDK GitHub repo can be found here: https://github.com/aws/aws-iot-device-sdk-cpp
