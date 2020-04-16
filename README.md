@@ -90,6 +90,10 @@ Once we made sure we could recieve and send signals for state and recording cont
 
 As for the data collecting device, we used the Intel 435i depth-mapping camera to obtain RGB, depth mappings, and other useful functionalities. The device could be operated on any computer with major operating systems and usb portals. Our original plan was to use the Jetson Nvidia Nano as the machine for processing and storing the data that we collected with the Intel 435i, all while using libraries written in C++. Although the process worked successfully in normal Linux machines, such as the Dell Inspiration laptop with Ubuntu, the librealsense library failed to compile on the Jetson Nvidia Nano with Ubuntu. The essence of the problem is that some of the external code that the librealsense library depends on is not supported by the computer architecture of the Jetson Nvidia Nano (which is in ARM). We then decided to work with the raspberry pi instead, as we thought it would be the best substitute for the project.
 
+First of all, Raspberry PI needs to be setup properly with a microSD card before it can be used. The microSD card should be reformatted before the opearting system can be installed. This is done by using SD Formatter 5.0.1. Then NOOBS 3.3.1 (Neww Out of the Box Software, an easy operating system installer which contains the Raspbian and LibreELEC) is downloaded from the official website. Then all the NOOBS files in the folder should be moved into the SD card. Here is the link to safely download NOOBS: https://www.raspberrypi.org/downloads/noobs/.
+
+Then, the microSD card is inserted into the Raspberry Pi, and 
+
 
 ### Part 4
 
