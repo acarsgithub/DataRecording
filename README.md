@@ -92,17 +92,18 @@ As for the data collecting device, we used the Intel 435i depth-mapping camera t
 
 First of all, Raspberry PI needs to be setup properly with a microSD card before it can be used. The microSD card should be reformatted before the opearting system can be installed. This is done by using SD Formatter 5.0.1. Then NOOBS 3.3.1 (Neww Out of the Box Software, an easy operating system installer which contains the Raspbian and LibreELEC) is downloaded from the official website. Then all the NOOBS files in the folder should be moved into the SD card. Here is the link to safely download NOOBS: https://www.raspberrypi.org/downloads/noobs/.
 
-Then, the microSD card is inserted into the Raspberry Pi. For first time setup, USB keyboard, USB mouse, and HDMI video component is required. Needless to say the power supply is required as well. From NOOBS, the Rapsbian operating system should be installed. Configure the Raspberry Pi from Preferences in the dropdown menu. 
+Then, the microSD card is inserted into the Raspberry Pi. For first time setup, USB keyboard, USB mouse, and HDMI video component is required. Needless to say, the power supply is required as well. From NOOBS, the Rapsbian operating system should be installed. Configure the Raspberry Pi from Preferences in the dropdown menu. 
 
 **In Interfaces in the Rapsberry Pi Configuration menu, make sure SSH is enabled (it is disabled by default).**
 
-Since since reconfiguring the Raspberry Pi will require a reboot, click **Yes** when the reboot window appears.
+Since reconfiguring the Raspberry Pi will require a reboot, click **Yes** when the reboot window appears.
 
 **Note: Ethernet cable or wireless adapter is also required to connect to the Internet.**
 
-Use `ifconfig` to determine the local IP address of the Raspberry Pi. This command shows a list of active network adapters and their configuration. if Ethernet is used, it is under eth0, if WiFi is used, it is under wlan0. 
+Use `ifconfig` to determine the local IP address of the Raspberry Pi. This command shows a list of active network adapters and their configuration. If Ethernet is used, it is under eth0: if WiFi is used, it is under wlan0. 
 
 From terminal on the computer (Mac and Linux), we can now SSH into the Pi and using the following command:
+
 ```
 ssh pi@192.168.x.x
 ```
