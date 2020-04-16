@@ -116,7 +116,7 @@ The default username and password is:
 
 **Beware: For security reasons, the default password MUST be changed.**
 
-After we successfully set up SSH, we can now access the Raspberry Pi from our machine. 
+After we successfully set up SSH, we can now access the Raspberry Pi remotely from our machine through SSH. 
 
 #### Current Issue: Although the librealsense library seems to be compatible with Raspberry Pi's computer architecture through examination, I have yet to compile the library successfully on the Raspberry Pi.
 
